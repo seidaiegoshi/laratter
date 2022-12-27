@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\FavoriteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,8 @@ use App\Http\Controllers\TweetController;
 */
 
 Route::middleware("auth")->group(function () {
+    Route::post("tweet/{tweet}/favorites", [FavoriteController::class, "store"])->name("favorites");
+    Route::post("tweet/{tweet}/unfavotrites", [FavoriteController::class, "destroy"])->name("unfavorites");
     Route::get("/tweet/mypage", [TweetController::class, "mydata"])->name("tweet.mypage");
     Route::resource('tweet', TweetController::class);
 });

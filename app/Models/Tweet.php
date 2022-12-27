@@ -23,4 +23,8 @@ class Tweet extends Model
     {
         return self::orderBy('updated_at', 'desc')->get();
     }
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }
