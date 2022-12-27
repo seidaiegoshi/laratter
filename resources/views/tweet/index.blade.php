@@ -21,6 +21,7 @@
               @foreach ($tweets as $tweet)
               <tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">
+                  <p class="text-left text-grey-dark">{{$tweet->user->name}}</p>
                   <a href="{{ route('tweet.show',$tweet->id) }}">
                     <h3 class="text-left font-bold text-lg text-grey-dark">{{$tweet->tweet}}</h3>
                   </a>
